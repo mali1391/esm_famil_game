@@ -15,7 +15,7 @@ class Esm_famil_objects:
         self.item = item
         self.list_of_objects = []
         self.dict_of_objects = dict_of_objects
-        self.answer_part = ""
+        self.answer_part = str()
         self.part = {}
     def objects(self):
         self.part = {self.item : self.answer_part}
@@ -30,8 +30,8 @@ class Esm_famil_game(Esm_famil_objects):
 
     def answer(self):
         new_item = self.answer_part
-        self.dict_of_objects[self.answer_part] = new_item
-        self.list_of_objects.append(new_item)
+        self.dict_of_objects[x] = new_item
+        self.list_of_objects.append(self.dict_of_objects)
 
         # def check_
 
@@ -47,18 +47,17 @@ for i in range(players):
     elif players <= 0:
         print("The game can't numbered the players.")
 
+my_dict = dict()
 objects = int(input("How many objects do you want to create? "))
 # if objects >= 5:
-
-objects_dict = {}
 for i in range(objects):
     item = input("What is your item: ")
-    a = Esm_famil_objects(objects, item, objects_dict)
+    a = Esm_famil_objects(objects, item, my_dict)
     a.objects()
 
-keys_to_process = list(objects_dict.keys())
+keys_to_process = list(my_dict.keys())
 for x in keys_to_process:
     answer = input(f"What is your answer for {x}: ")
-    b = Esm_famil_game(objects, answer, objects_dict)
+    b = Esm_famil_game(objects, answer, my_dict)
     b.objects()
     b.answer()
